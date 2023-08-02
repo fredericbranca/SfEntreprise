@@ -39,12 +39,18 @@ CREATE TABLE IF NOT EXISTS `employe` (
   `prenom` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `date_naissance` datetime DEFAULT NULL,
   `date_embauche` datetime NOT NULL,
+  `ville` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_F804D3B9A4AEAFEA` (`entreprise_id`),
   CONSTRAINT `FK_F804D3B9A4AEAFEA` FOREIGN KEY (`entreprise_id`) REFERENCES `entreprise` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table sfentreprisefred.employe : ~0 rows (environ)
+-- Listage des données de la table sfentreprisefred.employe : ~3 rows (environ)
+INSERT INTO `employe` (`id`, `entreprise_id`, `nom`, `prenom`, `date_naissance`, `date_embauche`, `ville`) VALUES
+	(1, 1, 'SMAIL', 'Stephane', '1990-08-02 11:00:15', '2019-08-02 11:00:18', NULL),
+	(2, 1, 'MATHIEU', 'QUENTIN', '1991-08-02 11:00:48', '2021-08-02 11:01:07', NULL),
+	(3, 2, 'ANDRES', 'Mathilde', '1985-08-02 11:01:35', '2020-08-02 11:01:39', NULL),
+	(4, 1, 'Branca', 'Frederic', '1995-09-10 00:00:00', '2023-07-10 00:00:00', 'Strasbourg');
 
 -- Listage de la structure de table sfentreprisefred. entreprise
 CREATE TABLE IF NOT EXISTS `entreprise` (
@@ -55,9 +61,14 @@ CREATE TABLE IF NOT EXISTS `entreprise` (
   `cp` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ville` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Listage des données de la table sfentreprisefred.entreprise : ~0 rows (environ)
+-- Listage des données de la table sfentreprisefred.entreprise : ~4 rows (environ)
+INSERT INTO `entreprise` (`id`, `raison_sociale`, `date_creation`, `adresse`, `cp`, `ville`) VALUES
+	(1, 'ELAN FORMATION', '2007-08-02 10:15:53', '202 avenue de Colmar', '67000', 'STRASBOURG'),
+	(2, 'COACTIS', '2017-01-02 05:16:28', '10 rue de la Charmille', '67200', 'STRASBOURG'),
+	(3, 'ENTREPRISE', '2023-08-02 10:17:08', '1 rue Principale', '68000', 'COLMAR'),
+	(4, 'TF1', '1970-12-25 00:00:00', '15 rue de la Paix', '75000', 'Paris');
 
 -- Listage de la structure de table sfentreprisefred. messenger_messages
 CREATE TABLE IF NOT EXISTS `messenger_messages` (
