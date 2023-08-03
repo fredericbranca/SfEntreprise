@@ -17,7 +17,8 @@ class EntrepriseType extends AbstractType
         $builder
             ->add('raisonSociale', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'autocomplete' => 'off'
                 ]
             ])
             ->add('dateCreation', DateType::class, [
@@ -28,17 +29,20 @@ class EntrepriseType extends AbstractType
             ])
             ->add('adresse', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'autocomplete' => 'off'
                 ]
             ])
             ->add('cp', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'autocomplete' => 'off'
                 ]
             ])
             ->add('ville', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'autocomplete' => 'off'
                 ]
             ])
             ->add('Valider', SubmitType::class, [

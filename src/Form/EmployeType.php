@@ -19,12 +19,14 @@ class EmployeType extends AbstractType
         $builder
             ->add('nom', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'autocomplete' => 'off'
                 ]
             ])
             ->add('prenom', TextType::class, [
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'autocomplete' => 'off'
                 ]
             ])
             ->add('dateNaissance', DateType::class, [
@@ -40,8 +42,10 @@ class EmployeType extends AbstractType
                 ]
             ])
             ->add('ville', TextType::class, [
+                'required' => false,
                 'attr' => [
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                    'autocomplete' => 'off'
                 ]
             ])
             ->add('entreprise', EntityType::class, [

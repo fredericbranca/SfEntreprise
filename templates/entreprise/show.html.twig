@@ -3,34 +3,36 @@
 {% block title %}Détails d'une entreprise{% endblock %}
 
 {% block body %}
-<h1>Détails d'une entreprise</h1>
-<h2>{{ entreprise }} </h2>
-<p>
-    Adresse : {{ entreprise.adresseComplete}}
-</p>
-<p>
-    Date de création : {{ entreprise.dateCreation |format_datetime(pattern='d MMMM y', locale='fr') }}
-</p>
 
-<h3>Liste des salariés</h3>
-{% if entreprise.employes | length > 0%}
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th>Employé</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for employe in entreprise.employes %}
-        <tr>
-            <td>
-                <a href={{ path('show_employe', {'id' : employe.id}) }}>{{ employe}}</a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
-{% else %}
-<p>Aucun salarié dans cette entreprise</p>
-{% endif %}
+    <h1>Détails d'une entreprise</h1>
+    <h2>{{ entreprise }}</h2>
+    <p>
+        Adresse : {{ entreprise.adresseComplete}}
+    </p>
+    <p>
+        Date de création : {{ entreprise.dateCreation |format_datetime(pattern='d MMMM y', locale='fr') }}
+    </p>
+
+    <h3>Liste des salariés</h3>
+    {% if entreprise.employes | length > 0%}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Employé</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employe in entreprise.employes %}
+                    <tr>
+                        <td>
+                            <a href={{ path('show_employe', {'id' : employe.id}) }}>{{ employe}}</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Aucun salarié dans cette entreprise</p>
+    {% endif %}
+
 {% endblock %}
